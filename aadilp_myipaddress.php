@@ -9,7 +9,8 @@
  * Author URI: 
  */
 
-function aadilp_myipaddress__theip() {
+function aadilp_myipaddress__theip($atts) {
+  
   if( ! empty( $_SERVER['CF-Connecting-IP'] ) ) {
     $ip = $_SERVER['CF-Connecting-IP']; //--  --  --  --  --  --  -- Cloudflare support
   } elseif ( ! empty( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
@@ -20,3 +21,5 @@ function aadilp_myipaddress__theip() {
   
   return $ip;
 }
+
+add_shortcode('aadilp-myipaddress-sc', 'aadilp_myipaddress__theip');
